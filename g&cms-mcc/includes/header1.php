@@ -99,7 +99,7 @@
                     <div class="navbar-nav py-0">
                         <a href="index1.php" class="nav-item nav-link active">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="course.html" class="nav-item nav-link">Courses</a>
+                        <a href="#" class="nav-item nav-link">Courses</a>
                         <a href="team.php" class="nav-item nav-link">Team</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Blog</a>
