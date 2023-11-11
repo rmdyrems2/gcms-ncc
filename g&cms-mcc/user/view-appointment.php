@@ -7,56 +7,56 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
 } else {
 
     ?>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
+<head>
 
-        <title>MCC - GCMS | View Appointment</title>
-        <!-- plugins:css -->
-        <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
-        <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-        <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-        <!-- endinject -->
-        <!-- Plugin css for this page -->
-        <link rel="stylesheet" href="vendors/select2/select2.min.css">
-        <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-        <!-- End plugin css for this page -->
-        <!-- inject:css -->
-        <!-- endinject -->
-        <!-- Layout styles -->
-        <link rel="stylesheet" href="css/style.css" />
+    <title>MCC - GCMS | View Appointment</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="css/style.css" />
 
-    </head>
+</head>
 
-    <body>
-        <div class="container-scroller">
-            <!-- partial:partials/_navbar.html -->
-            <?php include_once('includes/header.php'); ?>
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <?php include_once('includes/header.php'); ?>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <?php include_once('includes/sidebar.php'); ?>
             <!-- partial -->
-            <div class="container-fluid page-body-wrapper">
-                <!-- partial:partials/_sidebar.html -->
-                <?php include_once('includes/sidebar.php'); ?>
-                <!-- partial -->
-                <div class="main-panel">
-                    <div class="content-wrapper">
-                        <div class="page-header">
-                            <h3 class="page-title"> View Appointment </h3>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"> View Appointment</li>
-                                </ol>
-                            </nav>
-                        </div>
-                        <div class="row">
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> View Appointment </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"> View Appointment</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="row">
 
-                            <div class="col-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
 
-                                        <table border="1" class="table table-bordered mg-b-0">
-                                            <?php
+                                    <table border="1" class="table table-bordered mg-b-0">
+                                        <?php
                                             $studentID = $_SESSION['sturecmsstuid'];
                                             $sql       = "SELECT * FROM appointments WHERE user_id = :studentID";
                                             $query     = $dbh->prepare($sql);
@@ -70,81 +70,89 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
                                                     // Check if the appointment object is not null
                                                     if ($row) {
                                                         ?>
-                                                        <tr align="center" class="table-warning">
-                                                            <td colspan="4" style="font-size:20px;color:blue">
-                                                                APPOINTMENT
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="table-info">
-                                                            <th>Announced Date</th>
-                                                            <td>
-                                                                <?php echo $row->CreationDate; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="table-info">
-                                                            <th>Note</th>
-                                                            <td>
-                                                                <?php echo $row->apmntMessage; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="table-info">
-                                                            <th>Date</th>
-                                                            <td>
-                                                                <?php echo $row->appointment_date; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="table-info">
-                                                            <th>Time</th>
-                                                            <td>
-                                                                <?php echo $row->appointment_time; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="table-info">
-                                                            <th>Status</th>
-                                                            <td>
-                                                                <?php echo $row->appointment_status; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
+                                        <tr align="center" class="table-warning">
+                                            <td colspan="4" style="font-size:20px;color:blue">
+                                                APPOINTMENT
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <th>Announced Date</th>
+                                            <td>
+                                                <?php echo $row->CreationDate; ?>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <th>Appointment Type</th>
+                                            <td>
+                                                <?php echo $row->apmnttype; ?>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <th>Time</th>
+                                            <td>
+                                                <?php echo $row->appointment_time; ?>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <th>Date</th>
+                                            <td>
+                                                <?php echo $row->appointment_date; ?>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <th>Note</th>
+                                            <td>
+                                                <?php echo $row->apmntMessage; ?>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr class="table-info">
+                                            <th>Status</th>
+                                            <td>
+                                                <?php echo $row->appointment_status; ?>
+                                            </td>
+                                        </tr>
+                                        <?php
                                                     }
                                                 }
                                             } else { ?>
-                                                <tr>
-                                                    <th colspan="2" style="color:red;">No Appointment Found</th>
-                                                </tr>
-                                            <?php } ?>
-                                        </table>
-                                    </div>
+                                        <tr>
+                                            <th colspan="2" style="color:red;">No Appointment Found</th>
+                                        </tr>
+                                        <?php } ?>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- content-wrapper ends -->
-                    <!-- partial:partials/_footer.html -->
-                    <?php include_once('includes/footer.php'); ?>
-                    <!-- partial -->
                 </div>
-                <!-- main-panel ends -->
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <?php include_once('includes/footer.php'); ?>
+                <!-- partial -->
             </div>
-            <!-- page-body-wrapper ends -->
+            <!-- main-panel ends -->
         </div>
-        <!-- container-scroller -->
-        <!-- plugins:js -->
-        <script src="vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <script src="vendors/select2/select2.min.js"></script>
-        <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="js/off-canvas.js"></script>
-        <script src="js/misc.js"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page -->
-        <script src="js/typeahead.js"></script>
-        <script src="js/select2.js"></script>
-        <!-- End custom js for this page -->
-    </body>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="vendors/select2/select2.min.js"></script>
+    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="js/typeahead.js"></script>
+    <script src="js/select2.js"></script>
+    <!-- End custom js for this page -->
+</body>
 
-    </html>
+</html>
 <?php } ?>

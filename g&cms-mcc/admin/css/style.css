@@ -10550,7 +10550,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #1bdbe0 !important;
+  background-color: #38ce3c !important;
 }
 
 a.bg-primary:hover,
@@ -10594,7 +10594,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ffde73 !important;
+  background-color: #38ce3c !important;
 }
 
 a.bg-warning:hover,
@@ -10605,7 +10605,7 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #ff4d6b !important;
+  background-color: #38ce3c !important;
 }
 
 a.bg-danger:hover,
@@ -19358,8 +19358,12 @@ dl li {
 }
 
 .report-inner-cards-wrapper .report-inner-card .report-count {
-  font-size: 14px;
+  font-size: 13px;
   color: #38ce3c
+}
+
+.report-inner-cards-wrapper .report-inner-card .report-count:hover {
+  color: #59b369;
 }
 
 .report-inner-cards-wrapper .report-inner-card .inner-card-icon {
